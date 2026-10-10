@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Circumpolar Apps — Stack Hop: Tower Blocks</title>
+<meta name="description" content="Circumpolar Apps makes Stack Hop: Tower Blocks, a one-tap tower stacking game for Android.">
+<!-- The root of circumpolarapps.github.io (repo circumpolarapps.github.io), beside app-ads.txt.
+     The privacy policy lives in its own repo and is served at /privacypolicy/. Self-contained on
+     purpose: no images, fonts or scripts to upload — the tower is drawn in CSS, like the game. -->
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #f6f8fa; --card: #ffffff; --text: #1f2328; --muted: #59636e; --line: #d0d7de;
+    --accent: #6c5ce7; --link: #0969da;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1117; --card: #161b22; --text: #e6edf3; --muted: #8d96a0; --line: #30363d;
+      --accent: #a29bfe; --link: #4493f8;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--bg);
+  }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 20px 48px; }
+  header.brand { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+  .mark {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: linear-gradient(160deg, #2b2d6e, #6c5ce7);
+    display: grid; place-items: center; color: #fff; font-weight: 700; font-size: 1.1rem;
+  }
+  .brand-name { font-weight: 700; font-size: 1.15rem; }
+
+  .hero {
+    background: linear-gradient(170deg, #1b1f4b 0%, #3b2f7a 55%, #6c5ce7 100%);
+    color: #fff;
+    border-radius: 18px;
+    padding: 32px 28px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: center;
+    overflow: hidden;
+  }
+  .hero h1 { margin: 0 0 6px; font-size: 2rem; line-height: 1.15; }
+  .hero .tagline { margin: 0 0 20px; opacity: 0.9; font-size: 1.05rem; }
+
+  /* The tower: blocks narrowing as they climb, the top one swinging, as in the game. */
+  .tower { width: 150px; height: 170px; position: relative; }
+  .block {
+    position: absolute; left: 50%; height: 24px; border-radius: 6px;
+    transform: translateX(-50%);
+    box-shadow: inset 0 3px 0 rgba(255, 255, 255, 0.35), 0 4px 10px rgba(0, 0, 0, 0.25);
+  }
+  .b1 { bottom: 0;    width: 140px; background: #5b8def; }
+  .b2 { bottom: 26px; width: 128px; background: #9b6ef3; }
+  .b3 { bottom: 52px; width: 116px; background: #e86fb5; }
+  .b4 { bottom: 78px; width: 108px; background: #f39a5b; }
+  .b5 { bottom: 104px; width: 100px; background: #f5cf5b; }
+  .swing { bottom: 140px; width: 100px; background: #6fdc9b; animation: swing 2.4s ease-in-out infinite alternate; }
+  @keyframes swing {
+    from { transform: translateX(-95%); }
+    to   { transform: translateX(-5%); }
+  }
+  @media (prefers-reduced-motion: reduce) { .swing { animation: none; } }
+
+  .play {
+    display: inline-block;
+    background: #fff; color: #1b1f4b;
+    font-weight: 700; text-decoration: none;
+    padding: 12px 22px; border-radius: 999px;
+  }
+  .play:hover { background: #ecebff; }
+
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 8px 24px 16px; margin-top: 20px; }
+  h2 { font-size: 1.2rem; margin: 16px 0 8px; }
+  ul { padding-left: 1.3em; margin: 8px 0; }
+  li { margin: 6px 0; }
+  a { color: var(--link); }
+  footer { color: var(--muted); font-size: 0.9rem; margin-top: 32px; text-align: center; }
+  footer a { color: var(--muted); }
+
+  @media (max-width: 560px) {
+    .hero { grid-template-columns: 1fr; text-align: center; padding: 28px 20px; }
+    .tower { margin: 0 auto; order: -1; }
+    .hero h1 { font-size: 1.7rem; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header class="brand">
+    <div class="mark" aria-hidden="true">C</div>
+    <div class="brand-name">Circumpolar Apps</div>
+  </header>
+
+  <div class="hero">
+    <div>
+      <h1>Stack Hop: Tower Blocks</h1>
+      <p class="tagline">One tap to drop the block. Land it dead centre to keep your full width. How high can you build?</p>
+      <a class="play" href="https://play.google.com/store/apps/details?id=com.circumpolarapps.stackhop">Get it on Google Play</a>
+    </div>
+    <div class="tower" aria-hidden="true">
+      <div class="block b1"></div>
+      <div class="block b2"></div>
+      <div class="block b3"></div>
+      <div class="block b4"></div>
+      <div class="block b5"></div>
+      <div class="block swing"></div>
+    </div>
+  </div>
+
+  <section>
+    <h2>The game</h2>
+    <ul>
+      <li><strong>A campaign of 27 chapters</strong> in four acts, from windy hills and haunted nights to the deep sea, outer space and a castle under siege. Each place changes how the tower plays.</li>
+      <li><strong>Three endless modes:</strong> Classic, Time Attack, and Zen, where a miss never ends the run.</li>
+      <li><strong>Powerups, characters and themes</strong> to collect, including a pure-black AMOLED theme.</li>
+      <li><strong>Plays offline.</strong> No account, and your progress stays on your phone.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Support and privacy</h2>
+    <ul>
+      <li>Questions or problems: <a href="mailto:circumpolarapps@gmail.com">circumpolarapps@gmail.com</a></li>
+      <li><a href="/privacypolicy/">Privacy policy</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    © 2026 Circumpolar Apps · <a href="/privacypolicy/">Privacy</a> · <a href="mailto:circumpolarapps@gmail.com">Contact</a>
+  </footer>
+</main>
+</body>
+</html>
